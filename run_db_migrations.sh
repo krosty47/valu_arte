@@ -1,0 +1,1 @@
+docker exec -it valu_arte python3 manage.py db migrate

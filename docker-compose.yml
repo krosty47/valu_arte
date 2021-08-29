@@ -1,0 +1,27 @@
+version: '3.6'
+services:
+  
+  app:
+    container_name: valu_arte #aca el nombre de la imagen
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/project:z 
+    ports:
+      - 5000:5000 #aca va el puerto donde levanta la imagen
+    depends_on:
+      - db
+    command: sh -c 'python3 app.py'
+    environment:
+      - DATABASE_URL=postgresql://athyna:Krosty47@db/athynadb
+
+  db:
+    image: 'postgres:latest'
+    restart: always
+    environment:
+      - POSTGRES_USER=athyna
+      - POSTGRES_PASSWORD=Krosty47
+      - POSTGRES_DB=athynadb
+    ports:
+      - '5432:5432'
