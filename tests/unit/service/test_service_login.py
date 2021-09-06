@@ -2,6 +2,7 @@ import unittest
 from encryptors.md5 import MD5
 
 from test_setup import test 
+from service.service_user import ServiceUser
 from service.service_login import ServiceLogin
 from tests.fixtures.fixture_user import FixtureUser
 from service.service_security import ServiceSecurity
@@ -12,6 +13,7 @@ from exceptions.exception_invalid_password import InvalidPassword
 class TestServiceLogin(unittest.TestCase):
 
     encryptor = MD5()
+    service_user = ServiceUser()
     login_constants = LoginConstants()
     service_security = ServiceSecurity()
     service_login = ServiceLogin(service_user, service_security, encryptor)
