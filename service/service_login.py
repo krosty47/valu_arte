@@ -5,7 +5,6 @@ from exceptions.message import Message
 
 from service.service_security import ServiceSecurity
 from service.service_user import ServiceUser
-from constants.security_constants import SecurityConstants
 
 
 class ServiceLogin():
@@ -24,7 +23,7 @@ class ServiceLogin():
     def validate_user(self, email, password):
         user = self.service_user.get_user(email)
         self.__validate_password(user, password)
-        return self.service_security.generate_token(email, SecurityConstants.ROL_ADMIN)
+        return self.service_security.generate_token(email)
 
     def __validate_password(self, user, password):
         password_encrypted = self.encryptor.encrypt(password)
