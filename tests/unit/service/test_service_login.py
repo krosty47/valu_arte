@@ -1,7 +1,7 @@
 import unittest
 from encryptors.md5 import MD5
 
-from test_setup import test 
+from tests.test_setup import test
 from service.service_user import ServiceUser
 from service.service_login import ServiceLogin
 from tests.fixtures.fixture_user import FixtureUser
