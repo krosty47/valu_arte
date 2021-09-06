@@ -1,14 +1,19 @@
 import unittest
+from encryptors.md5 import MD5
 
 from test_setup import test 
+from service.service_login import ServiceLogin
+from service.service_security import ServiceSecurity
 from tests.data.login_constants import LoginConstants
 from exceptions.exception_non_existent_user import NonExistentUser
 from exceptions.exception_invalid_password import InvalidPassword
 
 class TestServiceLogin(unittest.TestCase):
 
+    encryptor = MD5()
     login_constants = LoginConstants()
-
+    service_security = ServiceSecurity()
+    service_login = ServiceLogin(service_user, service_security, encryptor)
 
     @test.database
     def test_user_invalid_return_non_existent_user(self):
