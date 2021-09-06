@@ -27,6 +27,6 @@ class TestServiceLogin(unittest.TestCase):
                           self.login_constants.NON_EXISTING_EMAIL,
                           self.login_constants.ANY_PASSWORD)
     
-     def __then_throw_exception_invalid_password(self):
+    def __then_throw_exception_invalid_password(self):
         self.assertRaises(InvalidPassword, self.service_login.validate_user,
                           self.login_constants.EXISTING_EMAIL, self.login_constants.PASSWORD_INVALID)
