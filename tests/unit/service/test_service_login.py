@@ -3,6 +3,7 @@ from encryptors.md5 import MD5
 
 from test_setup import test 
 from service.service_login import ServiceLogin
+from tests.fixtures.fixture_user import FixtureUser
 from service.service_security import ServiceSecurity
 from tests.data.login_constants import LoginConstants
 from exceptions.exception_non_existent_user import NonExistentUser
@@ -26,6 +27,9 @@ class TestServiceLogin(unittest.TestCase):
         self.__given_an_existent_user()
         # when login
         self.__then_throw_exception_invalid_password()
+
+    def __given_an_existent_user(self):
+        FixtureUser.run()
 
     def __then_throw_exception_non_existent_user(self):
         self.assertRaises(NonExistentUser, self.service_login.validate_user,
