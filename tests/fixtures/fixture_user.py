@@ -11,7 +11,7 @@ class FixtureUser():
 
     def run():
         login_constant = LoginConstants()
-        user = User(login_constant.EXISTING_EMAIL, login_constant.USER_NAME, login_constant.HOUR_PRICE, login_constant.PROFIT, login_constant.IMAGE_URL)
+        user = User(login_constant.EXISTING_EMAIL, login_constant.PASSWORD_VALID, login_constant.USER_NAME, login_constant.HOUR_PRICE, login_constant.PROFIT, login_constant.IMAGE_URL)
         db.session.add(user)
         db.session.commit()
         db.session.refresh(user)
