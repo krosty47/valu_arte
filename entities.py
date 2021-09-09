@@ -21,6 +21,9 @@ class User(db.Model):
         self.hour_price = hour_price
         self.profit = profit
         self.image_url = image_url
+    
+    def __str__(self):
+        return self.email
 
 
 class Material (db.Model):

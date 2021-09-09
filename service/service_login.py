@@ -1,6 +1,5 @@
 from encryptors.md5 import MD5
 from exceptions.exception_invalid_password import InvalidPassword
-from exceptions.exception_non_existent_user import NonExistentUser
 from exceptions.message import Message
 
 from service.service_security import ServiceSecurity
@@ -26,7 +25,10 @@ class ServiceLogin():
         return self.service_security.generate_token(email)
 
     def __validate_password(self, user, password):
-        password_encrypted = self.encryptor.encrypt(password)
+        password_encrypted = self.encript_password(password)
         if user.password != password_encrypted:
             raise InvalidPassword(self.message.THE_PASSWORD_IS_INVALID)
-
+    
+    def encript_password(self, password):
+        password_encrypted = self.encryptor.encrypt(password)
+        return password_encrypted
