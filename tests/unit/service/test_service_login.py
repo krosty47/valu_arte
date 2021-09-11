@@ -20,17 +20,17 @@ class TestServiceLogin(unittest.TestCase):
     service_login = ServiceLogin(service_user, service_security, encryptor)
 
 
-    # @test.database
-    # def test_user_invalid_return_non_existent_user(self):
-    #     # given a non existent user
-    #     # when login
-    #     self.__then_throw_exception_non_existent_user()
+    @test.database
+    def test_user_invalid_return_non_existent_user(self):
+        # given a non existent user
+        # when login
+        self.__then_throw_exception_non_existent_user()
 
-    # @test.database
-    # def test_user_with_invalid_password_return_invalid_password(self):
-    #     self.__given_an_existent_user()
-    #     # when login
-    #     self.__then_throw_exception_invalid_password()
+    @test.database
+    def test_user_with_invalid_password_return_invalid_password(self):
+        self.__given_an_existent_user()
+        # when login
+        self.__then_throw_exception_invalid_password()
     
     @test.database
     def test_user_valid_with_password_valid(self):
@@ -40,29 +40,29 @@ class TestServiceLogin(unittest.TestCase):
         decoded_token = self.__when_decode_token(token)
         self.__then_return_a(token, decoded_token)
     
-    
     def __given_an_existent_user(self):
         FixtureUser.run()
 
     def __when_login(self, email, password):
-        self.service_security.generate_token = MagicMock(return_value=self.login_constants.TOKEN_EXPECTED)
+    # if we pass an argument to MagicMock, that argument will be the only token done.
+        self.service_security.generate_token = MagicMock(return_value=self.login_constants.TOKEN_EXPECTED1)
         return self.service_login.validate_user(email, password)
     
     def __when_decode_token(self, token):
         decoded_token = self.service_security.decode_token(token)
         return decoded_token
 
-    # def __then_throw_exception_non_existent_user(self):
-    #     self.assertRaises(NonExistentUser, self.service_login.validate_user,
-    #                       self.login_constants.NON_EXISTING_EMAIL,
-    #                       self.login_constants.ANY_PASSWORD)
+    def __then_throw_exception_non_existent_user(self):
+        self.assertRaises(NonExistentUser, self.service_login.validate_user,
+                          self.login_constants.NON_EXISTING_EMAIL,
+                          self.login_constants.ANY_PASSWORD)
     
-    # def __then_throw_exception_invalid_password(self):
-    #     self.assertRaises(InvalidPassword, self.service_login.validate_user,
-    #                       self.login_constants.EXISTING_EMAIL, self.login_constants.PASSWORD_INVALID)
+    def __then_throw_exception_invalid_password(self):
+        self.assertRaises(InvalidPassword, self.service_login.validate_user,
+                          self.login_constants.EXISTING_EMAIL, self.login_constants.PASSWORD_INVALID)
     
     def __then_return_a(self, token, decoded_token: dict):
-        self.assertEqual(self.login_constants.TOKEN_EXPECTED, token)
+        self.assertEqual(self.login_constants.TOKEN_EXPECTED1, token)
         self.assertIsNotNone(decoded_token)
         self.assertIsNotNone(decoded_token.get('email'))
     

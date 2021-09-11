@@ -9,6 +9,7 @@ class LoginConstants():
     PASSWORD_INVALID = "unPasswordInvalido"
     ANY_PASSWORD = "anyPassword"
     TOKEN_EXPECTED = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6Im1hcmlhYW5nZWxAaGVjYS5jb20iLCJyb2wiOiJhZG1pbiIsImV4cCI6MTYyOTc1NjExNX0.7kALTAThYAQZphylciftf963GJg1k2JymGBFWmc1xWY"
+    TOKEN_EXPECTED1 = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImNocmlzQHZhbHVhcnRlLmNvbSIsImV4cCI6MTYzMTM2ODk5MX0.Lxb9Pc8kPZsi5D6AUHhyGC75zMpba-YJpVyJBaS4wN4"
     USER_NAME = "ValuArte"
     HOUR_PRICE = 10.5 # tendria que ser flotante
     PROFIT = 200
