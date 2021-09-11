@@ -15,4 +15,5 @@ db = SQLAlchemy(app)
 
 if __name__ == "__main__":
     from controller.controller_articles import *
+    from controller.controller_login import *
     app.run(debug=True, host='0.0.0.0')
