@@ -14,7 +14,11 @@ class UserModel():
             "type": "object",
             "properties": {
                 "email": {"type": "string", "maxLength": 100},
-                "password": {"type": "string"},           
+                "password": {"type": "string"},
+                "user_name": {"type": "string"},
+                "hour_price": {"type": "integer"},
+                "profit": {"type": "integer"},
+                "mage_url": {"type": "string"}
             },
             "required": ["email"]
         }

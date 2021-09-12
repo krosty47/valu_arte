@@ -1,5 +1,6 @@
 import unittest
 from app import app
+from controller.controller_login import *
 from tests.test_setup import test
 from exceptions.message import Message
 from tests.data.login_constants import LoginConstants
@@ -7,6 +8,7 @@ from tests.data.login_constants import LoginConstants
 class TestControllerLogin(unittest.TestCase):
 
 # 404 NOT FOUND
+# always import the controller you want to test
 
     login_constants = LoginConstants()
     message = Message()

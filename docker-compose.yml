@@ -9,12 +9,13 @@ services:
     volumes:
       - .:/project:z 
     ports:
-      - 5000:5000 #aca va el puerto donde levanta la imagen
+      - 8081:5000 #aca va el puerto donde levanta la imagen
     depends_on:
       - db
     command: sh -c 'python3 app.py'
     environment:
       - DATABASE_URL=postgresql://athyna:Krosty47@db/athynadb
+      - URL_BASE=http://localhost:8081/api/v1/
 
   db:
     image: 'postgres:latest'
