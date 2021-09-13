@@ -2,6 +2,7 @@ from exceptions.message import Message
 from repository.repository_user import RepositoryUser
 from exceptions.exception_non_existent_user import NonExistentUser
 from exceptions.exception_user_email_not_unique import UserEmailNotUnique
+from exceptions.exception_user_name_not_unique import UserNameNotUnique
 
 class ServiceUser():
 
@@ -16,6 +17,7 @@ class ServiceUser():
     def validate_user(self, users):
         self.validate_user_exist(len(users))
         self.validate_email_not_unique(len(users))
+        self.validate_user_name_not_unique(len(users))
         return users[0]
 
     def validate_user_exist(self, len_users):
@@ -26,3 +28,9 @@ class ServiceUser():
         if len_users > 1:
             raise UserEmailNotUnique(
                 self.message.MORE_THAN_ONE_USER_WITH_THE_SAME_EMAIL)
+    
+    def validate_user_name_not_unique(self, len_users):
+        if len_users > 1:
+            raise UserNameNotUnique(
+                self.message.MORA_THAN_ONE_USER_WITH_THE_SAME_USER_NAME
+            )

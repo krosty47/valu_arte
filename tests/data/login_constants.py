@@ -4,6 +4,7 @@ class LoginConstants():
     EXISTING_EMAIL = "chris@valuarte.com"
     NON_EXISTING_EMAIL = "juan@valuarte.com"
     EMAIL_NOT_UNIQUE = "chris@valuarte.com"
+    EMAIL_USER_NAME_UNIQUE = "mel@valuarte.com"
     PASSWORD_VALID = "maria1990"
     PASSWORD_VALID_ENCRYPTED = "57acd745783ef0d5a06b9930effca052"
     PASSWORD_INVALID = "unPasswordInvalido"

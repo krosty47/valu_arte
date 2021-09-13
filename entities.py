@@ -6,9 +6,9 @@ class User(db.Model):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(100), unique=True)
+    email = db.Column(db.String(100))
     password = db.Column(db.String(100))
-    user_name = db.Column(db.String(100), unique=True)
+    user_name = db.Column(db.String(100))
     hour_price = db.Column(db.Numeric)
     profit = db.Column(db.Integer)
     image_url = db.Column(db.String(300))
